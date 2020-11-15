@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   padding: 0 25px;
 `
 
+export const Title = styled.h1`
+  font-size: 36px;
+  line-height: 42px;
+`
+
 export const Button = styled.a`
   display: inline-block;
   border-radius: 3px;

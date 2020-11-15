@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Menu = styled.div`
+export const MenuWrapper = styled.nav`
   display: flex;
   flex-direction: row;
 `

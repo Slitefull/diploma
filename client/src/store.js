@@ -1,8 +1,9 @@
-import {combineReducers, compose, createStore} from 'redux';
-import {appReducer} from './app/app-reducer';
+import {combineReducers, compose, createStore} from 'redux'
+
+import {reducer as formReducer} from 'redux-form'
 
 const reducers = combineReducers({
-  app: appReducer
+  form: formReducer
 })
 
 const store = createStore(reducers, compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
