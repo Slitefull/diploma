@@ -1,7 +1,9 @@
 import React from 'react'
-import {Title} from '../../variables'
+import { Title, Wrapper } from '../../variables'
 
 
 export const Catalog = () => (
-	<Title>Catalog Page</Title>
+	<Wrapper>
+		<Title>Catalog Page</Title>
+	</Wrapper>
 )

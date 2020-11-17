@@ -1,4 +1,17 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;  
+  }
+ 
+  body {
+    background: #fff;
+    font-family: 'circe', Helvetica, Sans-Serif;
+  }
+`
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,13 +25,7 @@ export const Title = styled.h1`
   line-height: 42px;
 `
 
-export const Button = styled.a`
-  display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: red;
-  color: #000000;
-  border: 2px solid white;
+export const Button = styled.button`
+  padding: 5px 20px;
+  cursor: pointer;
 `

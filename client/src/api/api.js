@@ -1,10 +1,9 @@
 import * as axios from 'axios'
 
 export const instance = axios.create({
-  baseURL: '',
-  withCredentials: true
+  baseURL: 'http://localhost:5000/api/'
 })
 
 export const authAPI = {
-
+  register: body => instance.post(`auth/register`, body)
 }

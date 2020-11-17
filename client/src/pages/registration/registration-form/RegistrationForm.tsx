@@ -1,6 +1,8 @@
 import React from 'react';
 import {Field} from 'redux-form';
 import {Input} from '../../../components/common/form-control/form-controls';
+import {Button} from '../../../variables';
+import {authAPI} from '../../../api/api';
 
 
 export const RegistrationForm = (props: any) => (
@@ -26,5 +28,6 @@ export const RegistrationForm = (props: any) => (
 			component={Input}
 			type={'password'}
 		/>
+		<Button onClick={() => authAPI.register({email: 'aleksandrkr@wizardsdev.com', password: 'ilovedildoverymatch'})}>Register</Button>
 	</form>
 )
