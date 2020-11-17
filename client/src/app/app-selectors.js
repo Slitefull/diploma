@@ -1,1 +1,1 @@
-export const getInitialized = state => state.app.isInitialized;
+export const getIsLoading = state => state.app.isLoading

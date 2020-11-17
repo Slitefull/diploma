@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export const MenuWrapper = styled.nav`
   display: flex;
   flex-direction: row;
-  padding: 10px 0;
+  align-items: center;
 `
 
 export const NavLinkItem = styled(NavLink)`

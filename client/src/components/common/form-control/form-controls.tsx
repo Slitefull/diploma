@@ -1,27 +1,41 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import {FormError, FormErrorIcon, FormErrorMessage, FormFieldWrapper} from './styled';
+import {Window} from '../../../styled';
 
 // @ts-ignore
 const FieldCreator = ({input, child, meta, ...props}) => {
 	const hasError = meta.touched && meta.error
+	const [isShown, setIsShown] = useState(false)
+
 	return (
-		<div>
-			<div> {props.children} </div>
-			<div> {hasError && <span>{meta.error}</span>} </div>
-		</div>
+		<FormFieldWrapper>
+			{props.children}
+			{hasError && <FormError>
+				{isShown
+					? <FormErrorMessage><Window hasError>{meta.error}</Window></FormErrorMessage>
+					: null
+				}
+        <FormErrorIcon
+          color={'red'}
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        />
+      </FormError>
+			}
+		</FormFieldWrapper>
 	)
 }
 
 export const Textarea = (props: any) => {
 	const {input, meta, child, ...restProps} = props;
 	return <FieldCreator {...props}>
-		<textarea {...input} {...restProps}/>
+		<textarea {...input} {...restProps} />
 	</FieldCreator>
 }
 
 export const Input = (props: any) => {
 	const {input, meta, child, ...restProps} = props;
 	return <FieldCreator {...props}>
-		<input {...input} {...restProps}/>
+		<input {...input} {...restProps} />
 	</FieldCreator>
 }

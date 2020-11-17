@@ -1,8 +1,10 @@
 import {combineReducers, compose, createStore} from 'redux'
 
 import {reducer as formReducer} from 'redux-form'
+import { appReducer } from './app/app-reducer';
 
 const reducers = combineReducers({
+  app: appReducer,
   form: formReducer
 })
 

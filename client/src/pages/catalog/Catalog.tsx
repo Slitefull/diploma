@@ -1,9 +1,9 @@
 import React from 'react'
-import { Title, Wrapper } from '../../variables'
+import { Title, Container } from '../../styled'
 
 
 export const Catalog = () => (
-	<Wrapper>
+	<Container>
 		<Title>Catalog Page</Title>
-	</Wrapper>
+	</Container>
 )

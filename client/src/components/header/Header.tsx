@@ -1,13 +1,15 @@
 import React from 'react'
 import { Menu } from './menu/Menu'
-import { Wrapper } from '../../variables'
-import { HeaderWrapper } from './styled'
+import { Container } from '../../styled'
+import { HeaderWrapper, Logo } from './styled'
+import logo from '../../assets/logo.jpg'
 
 
 export const Header = () => (
 	<HeaderWrapper>
-		<Wrapper>
+		<Container row>
+			<Logo src={logo} />
 			<Menu />
-		</Wrapper>
+		</Container>
 	</HeaderWrapper>
 )

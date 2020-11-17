@@ -1,12 +1,12 @@
 import React from 'react'
-import { Wrapper } from '../../variables'
+import { Container } from '../../styled'
 import { Copyright, FooterWrapper } from './styled'
 
 
 export const Footer = () => (
 	<FooterWrapper>
-		<Wrapper>
-			<Copyright>Project Diploma</Copyright>
-		</Wrapper>
+		<Container>
+			<Copyright>Project Diploma. Tytechko Maksym</Copyright>
+		</Container>
 	</FooterWrapper>
 )

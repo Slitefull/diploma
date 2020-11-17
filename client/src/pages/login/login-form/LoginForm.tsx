@@ -1,19 +1,27 @@
-import {Field} from 'redux-form';
-import {Input} from '../../../components/common/form-control/form-controls';
-import React from 'react';
+import React from 'react'
+import {Input} from '../../../components/common/form-control/form-controls'
+import {maxLengthCreator, required} from '../../../helpers/validators/validators';
+import {Button} from '../../../styled'
+import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'
+
+
+const maxLength15 = maxLengthCreator(15)
 
 export const LoginForm = (props: any) => (
-	<form onSubmit={props.handleSubmit}>
-		<Field
+	<Form onSubmit={props.handleSubmit}>
+		<FormLabel htmlFor={'email'}>Email address</FormLabel>
+		<FormField
 			name={'email'}
 			component={Input}
-			placeholder={'Email'}
+			validate={[required]}
 		/>
-		<Field
+		<FormLabel htmlFor={'password'}>Password</FormLabel>
+		<FormField
 			name={'password'}
-			component={Input}
-			placeholder={'Password'}
 			type={'password'}
+			component={Input}
+			validate={[maxLength15, required]}
 		/>
-	</form>
+		<Button fullWidth>Login</Button>
+	</Form>
 )
