@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import {getIsLoading} from '../../../app/selectors'
 import {Input} from '../../../components/common/form-control/form-controls'
 import {maxLengthCreator, required} from '../../../helpers/validators/validators'
-import {Button} from '../../../styled'
+import {Button, Preloader} from '../../../styled'
 import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'
 
 
@@ -41,7 +41,7 @@ export const RegistrationForm = (props: any) => {
 			/>
 			<Button fullWidth>{
 				loading
-					? 'Loading...'
+					? <Preloader small/>
 					: 'Register'
 			}</Button>
 		</Form>

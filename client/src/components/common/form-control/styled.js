@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Field } from 'redux-form';
-import {RiErrorWarningFill} from 'react-icons/ri'
+import { RiErrorWarningFill } from 'react-icons/ri'
 
 
 export const Form = styled.form`
@@ -28,7 +28,7 @@ export const FormField = styled(Field)`
   
   &:focus {
     background: #e8f0fe;
-    box-shadow: 0px 0px 4px #0366d6;
+    box-shadow: 0 0 4px #0366d6;
   }
 `
 

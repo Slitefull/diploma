@@ -1,9 +1,9 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
+import { history } from '../../history'
 import { loginActions, loginActionTypes } from './actions'
 import { loginAPI } from './api/api'
 import { appActions } from '../../app/actions'
 import { message } from 'antd'
-import { history } from '../../index'
 
 
 export const loginWatcher = [
@@ -19,6 +19,6 @@ function* handleLogin(action) {
     yield put(appActions.setLoading(false))
     history.push('/')
   } catch (e) {
-    message.error('Not ok');
+    message.error('Incorrect email or password!')
   }
 }

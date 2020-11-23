@@ -29,6 +29,8 @@ export const Title = styled.h1`
 `
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
   margin: 10px 0 0 0;
   padding: 7px 20px;
   cursor: pointer;
@@ -63,4 +65,30 @@ export const Window = styled.div`
   text-align: center;
   border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
   border-radius: 5px;
+`
+
+export const Preloader = styled.span`
+  display: inline-block;
+  width: ${props => props.small ? '22px' : '80px'};
+  height: ${props => props.small ? '22px' : '80px'};
+  
+  &:after {
+    content: " ";
+    display: block;
+    width: ${props => props.small ? '22px' : '64px'};
+    height: ${props => props.small ? '22px' : '64px'};
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading 1.2s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `

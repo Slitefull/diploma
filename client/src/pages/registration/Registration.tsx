@@ -10,7 +10,6 @@ import {registerActions} from './actions';
 
 export const Registration = () => {
 	const dispatch = useDispatch()
-
 	const register = (data: any) => dispatch(registerActions.registerAdmin(data))
 
 	return (
