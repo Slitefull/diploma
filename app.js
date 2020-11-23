@@ -4,7 +4,7 @@ const config = require('config')
 
 const app = express()
 
-app.use(express.json({extended: true}))
+app.use(express.json({ extended: true }))
 
 app.use((req, res, next) => {
   res.append('Access-Control-Allow-Origin', ['*']);

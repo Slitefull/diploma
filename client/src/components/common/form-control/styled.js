@@ -17,7 +17,6 @@ export const FormWrapper = styled.div`
 
 export const FormField = styled(Field)`
   width: 100%;
-  max-width: 245px;
   font-family: 'circe';
   font-size: 14px;
   line-height: 20px;

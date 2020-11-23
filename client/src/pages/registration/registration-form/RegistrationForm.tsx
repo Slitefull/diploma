@@ -1,10 +1,10 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
-import {getIsLoading} from '../../../app/app-selectors';
-import {Input} from '../../../components/common/form-control/form-controls';
-import {maxLengthCreator, required} from '../../../helpers/validators/validators';
-import {Button} from '../../../styled';
-import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled';
+import React from 'react'
+import {useSelector} from 'react-redux'
+import {getIsLoading} from '../../../app/selectors'
+import {Input} from '../../../components/common/form-control/form-controls'
+import {maxLengthCreator, required} from '../../../helpers/validators/validators'
+import {Button} from '../../../styled'
+import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'
 
 
 const maxLength15 = maxLengthCreator(15)
