@@ -1,11 +1,11 @@
 import React from 'react'
 import {reduxForm} from 'redux-form'
-import {useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux'
 import {RegistrationForm} from './registration-form/RegistrationForm'
-import {AlreadyHaveAccountWindow} from './already-have-account-window/AlreadyHaveAccountWindow'
-import {Container} from '../../styled'
+import {InfoWindow} from '../../components/common/info-window/InfoWindow'
+import {registerActions} from './actions'
+import {Container, Link} from '../../styled'
 import {FormTitle, FormWrapper} from '../../components/common/form-control/styled'
-import {registerActions} from './actions';
 
 
 export const Registration = () => {
@@ -13,11 +13,11 @@ export const Registration = () => {
 	const register = (data: any) => dispatch(registerActions.registerAdmin(data))
 
 	return (
-		<Container>
+		<Container alignCenter>
 			<FormTitle>Registration Page</FormTitle>
 			<FormWrapper>
 				<RegistrationReduxForm onSubmit={register}/>
-				<AlreadyHaveAccountWindow/>
+				<InfoWindow>Already have an account? <Link to={'/login'}>Login</Link></InfoWindow>
 			</FormWrapper>
 		</Container>
 	)

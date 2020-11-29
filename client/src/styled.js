@@ -12,15 +12,22 @@ export const GlobalStyle = createGlobalStyle`
     background: #fff;
     font-family: 'circe', Helvetica, Sans-Serif;
   }
+  
+  #root {
+    height: 100%;
+  }
 `
 
 export const Container = styled.div`
   width: 100%;
   max-width: 1250px;
+  min-height: calc(100% - 146px);
   margin: auto;
-  padding: 0 25px;
   display: flex;
+  padding: 0 25px;
   flex-direction: ${props => props.row ? 'row' : 'column'};
+  justify-content: ${props => props.alignCenter ? 'center' : 'normal'};
+  align-items: ${props => props.itemsCenter ? 'center' : 'normal' };
 `
 
 export const Title = styled.h1`
@@ -59,12 +66,12 @@ export const Link = styled(NavLink)`
 
 export const Window = styled.div`
   width: 100%;
-  padding: ${props => props.hasError ? '4px 0' : '15px 0'};
-  background: ${props => props.hasError ? '#ffe3e6' : 'transparent'};
   margin: 20px auto;
   text-align: center;
-  border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
   border-radius: 5px;
+  padding: ${props => props.hasError ? '4px 0' : '15px 0'};
+  background: ${props => props.hasError ? '#ffe3e6' : 'transparent'};
+  border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
 `
 
 export const Preloader = styled.span`
@@ -75,12 +82,12 @@ export const Preloader = styled.span`
   &:after {
     content: " ";
     display: block;
-    width: ${props => props.small ? '22px' : '64px'};
-    height: ${props => props.small ? '22px' : '64px'};
     border-radius: 50%;
     border: 6px solid #fff;
     border-color: #fff transparent #fff transparent;
     animation: loading 1.2s linear infinite;
+    width: ${props => props.small ? '22px' : '64px'};
+    height: ${props => props.small ? '22px' : '64px'};
   }
 
   @keyframes loading {

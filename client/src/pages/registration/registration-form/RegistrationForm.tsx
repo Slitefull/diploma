@@ -1,8 +1,8 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {getIsLoading} from '../../../app/selectors'
 import {Input} from '../../../components/common/form-control/form-controls'
 import {maxLengthCreator, required} from '../../../helpers/validators/validators'
+import {appSelectors} from '../../../app/selectors'
 import {Button, Preloader} from '../../../styled'
 import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'
 
@@ -10,7 +10,7 @@ import {Form, FormField, FormLabel} from '../../../components/common/form-contro
 const maxLength15 = maxLengthCreator(15)
 
 export const RegistrationForm = (props: any) => {
-	const loading = useSelector(getIsLoading)
+	const isLoading = useSelector(appSelectors.getIsLoading)
 
 	return (
 		<Form onSubmit={props.handleSubmit}>
@@ -40,7 +40,7 @@ export const RegistrationForm = (props: any) => {
 				validate={[maxLength15, required]}
 			/>
 			<Button fullWidth>{
-				loading
+				isLoading
 					? <Preloader small/>
 					: 'Register'
 			}</Button>

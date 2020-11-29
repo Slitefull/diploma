@@ -1,11 +1,16 @@
 export const loginActionTypes = {
-  SET_ADMIN: '@login/SET_ADMIN',
+  SET_USER: '@login/SET_USER',
+  SET_USER_DATA: '@login/SET_USER_DATA',
   SET_IS_AUTH: '@login/SET_IS_AUTH'
 }
 
 export const loginActions = {
   loginAdmin: data => ({
-    type: loginActionTypes.SET_ADMIN,
+    type: loginActionTypes.SET_USER,
+    payload: data
+  }),
+  setUserData: data => ({
+    type: loginActionTypes.SET_USER_DATA,
     payload: data
   }),
   setIsAuth: payload => ({
