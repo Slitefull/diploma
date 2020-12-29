@@ -1,13 +1,13 @@
 import { put, takeEvery } from 'redux-saga/effects'
-import { registerActionTypes } from './actions'
-import { registerAPI } from './api/api'
-import { appActions } from '../../app/actions'
+import { appActions } from '../../app/store'
+import { registerActions } from './store'
+import { registerAPI } from './api'
 import { history } from '../../history'
 import { message } from 'antd'
 
 
 export const registerWatcher = [
-  takeEvery(registerActionTypes.REGISTER_ADMIN, handleRegister)
+  takeEvery(registerActions.registerAdmin.type, handleRegister)
 ]
 
 function* handleRegister(action) {

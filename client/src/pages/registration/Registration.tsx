@@ -1,11 +1,11 @@
 import React from 'react'
-import {reduxForm} from 'redux-form'
-import {useDispatch} from 'react-redux'
-import {RegistrationForm} from './registration-form/RegistrationForm'
-import {InfoWindow} from '../../components/common/info-window/InfoWindow'
-import {registerActions} from './actions'
-import {Container, Link} from '../../styled'
-import {FormTitle, FormWrapper} from '../../components/common/form-control/styled'
+import { reduxForm } from 'redux-form'
+import { useDispatch } from 'react-redux'
+import { RegistrationForm } from './registration-form/RegistrationForm'
+import { InfoWindow } from '../../components/common/info-window/InfoWindow'
+import { registerActions } from './store'
+import { Container, Link } from '../../styled'
+import { FormTitle, FormWrapper } from '../../components/common/form-control/styled'
 
 
 export const Registration = () => {

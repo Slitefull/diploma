@@ -1,13 +1,13 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { history } from '../../history'
-import { loginActions, loginActionTypes } from './actions'
-import { loginAPI } from './api/api'
-import { appActions } from '../../app/actions'
+import { appActions } from '../../app/store'
+import { loginActions } from './store'
+import { loginAPI } from './api'
 import { message } from 'antd'
 
 
 export const loginWatcher = [
-  takeEvery(loginActionTypes.SET_USER, handleLogin)
+  takeEvery(loginActions.loginAdmin.type, handleLogin)
 ]
 
 function* handleLogin(action) {

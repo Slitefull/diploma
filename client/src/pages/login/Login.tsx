@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { loginActions } from './actions'
 import { LoginForm } from './login-form/LoginForm'
 import { InfoWindow } from '../../components/common/info-window/InfoWindow'
+import { loginActions } from './store';
 import { Container, Link } from '../../styled'
 import { FormTitle, FormWrapper } from '../../components/common/form-control/styled'
 

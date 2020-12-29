@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/Slitefull/diploma#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "antd": "^4.8.5",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.2",

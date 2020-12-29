@@ -1,10 +1,10 @@
 import { takeLatest, put } from 'redux-saga/effects'
-import { appActions, appActionTypes } from './actions'
-import { loginActions } from '../pages/login/actions';
+import { loginActions } from '../pages/login/store'
+import { appActions } from './store'
 
 
 export const appWatcher = [
-  takeLatest(appActionTypes.SET_INIT, initHandle)
+  takeLatest(appActions.setInit.type, initHandle)
 ]
 
 function* initHandle() {
