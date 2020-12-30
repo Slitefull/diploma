@@ -11,11 +11,11 @@ import 'antd/dist/antd.css'
 
 
 ReactDOM.render(
-	<Router history={history}>
-		<Provider store={store}>
-			<GlobalStyle/>
-			<App/>
-		</Provider>
-	</Router>,
-	document.getElementById('root')
+  <Router history={history}>
+    <Provider store={store}>
+      <GlobalStyle/>
+      <App/>
+    </Provider>
+  </Router>,
+  document.getElementById('root')
 )

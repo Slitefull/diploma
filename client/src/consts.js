@@ -12,3 +12,5 @@ export const pages = {
     title: 'Registration'
   }
 }
+
+export const localStorageDataName = 'userData'

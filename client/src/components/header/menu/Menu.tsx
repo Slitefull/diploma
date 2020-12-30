@@ -1,12 +1,17 @@
 import React from 'react';
-import {pages} from '../../../consts'
-import {MenuWrapper, NavLinkItem} from './styled'
+import {useSelector} from "react-redux";
+import {authSelectors} from "../../../pages/login/selectors";
+import {useRoutesMenu} from "../../../hooks/useRoutesMenu";
+import {MenuWrapper} from "./styled";
 
 
-export const Menu = () => (
-	<MenuWrapper>
-		<NavLinkItem to={pages.catalog.link}>{pages.catalog.title}</NavLinkItem>
-		<NavLinkItem to={pages.login.link}>{pages.login.title}</NavLinkItem>
-		<NavLinkItem to={pages.registration.link}>{pages.registration.title}</NavLinkItem>
-	</MenuWrapper>
-)
+export const Menu = () => {
+  const isAuth = useSelector(authSelectors.getIsAuth)
+  const menu = useRoutesMenu(isAuth)
+
+  return (
+    <MenuWrapper>
+      {menu}
+    </MenuWrapper>
+  )
+}

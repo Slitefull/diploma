@@ -1,27 +1,37 @@
-import { createAction } from '@reduxjs/toolkit';
+import { createAction, createSlice } from '@reduxjs/toolkit'
 
+const storeName = 'auth'
 
-export const loginActions = {
-  loginAdmin: createAction('@login/SET_USER'),
-  setIsAuth: createAction('@login/SET_IS_AUTH'),
-  setUserData: createAction('@login/SET_USER_DATA')
+const initialState = {
+  isAuth: false,
+  profile: {}
 }
 
-const loginSlice = ({
-  name: 'login',
-  initialState: {
-    isAuth: false,
-    profile: {}
-  },
+const authSlice = createSlice({
+  name: storeName,
+  initialState,
   reducers: {
     setUserData(state, action) {
       state.profile = action.payload
     },
     setIsAuth(state, action) {
       state.isAuth = action.payload
+    },
+    setUserName(state, action) {
+      state.profile.userName = action.payload
     }
   }
 })
 
-export const loginReducer = loginSlice.reducer
-export const { setUserData, setIsAuth } = loginSlice.actions
+const { setUserData, setIsAuth, setUserName } = authSlice.actions
+
+export const authActions = {
+  registerAdmin: createAction(`${storeName}/register_admin`),
+  loginAdmin: createAction(`${storeName}/login_admin`),
+  logout: createAction(`${storeName}/logout`),
+  setUserData,
+  setIsAuth,
+  setUserName,
+}
+
+export const authReducer = authSlice.reducer

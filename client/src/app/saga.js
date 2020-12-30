@@ -1,6 +1,6 @@
-import { takeLatest, put } from 'redux-saga/effects'
-import { loginActions } from '../pages/login/store'
-import { appActions } from './store'
+import {put, takeLatest} from 'redux-saga/effects'
+import {appActions} from './store'
+import {authActions} from "../pages/login/store";
 
 
 export const appWatcher = [
@@ -11,6 +11,9 @@ function* initHandle() {
   yield put(appActions.setLoading(true))
   const data = JSON.parse(localStorage.getItem('userData'))
 
-  if (data && data.token) yield put(loginActions.setIsAuth(true))
+  if (data && data.token) {
+    yield put(authActions.setIsAuth(true))
+    yield put(authActions.setUserName(data.userName))
+  }
   yield put(appActions.setLoading(false))
 }

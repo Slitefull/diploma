@@ -1,13 +1,15 @@
-import { put, takeEvery } from 'redux-saga/effects'
-import { history } from '../../history'
-import { appActions } from '../../app/store'
-import { loginActions } from './store'
-import { loginAPI } from './api'
-import { message } from 'antd'
+import {put, takeLatest} from 'redux-saga/effects'
+import {history} from '../../history'
+import {loginAPI} from './api'
+import {message} from 'antd'
+import {appActions} from '../../app/store'
+import {authActions} from './store'
+import {localStorageDataName} from "../../consts";
 
 
 export const loginWatcher = [
-  takeEvery(loginActions.loginAdmin.type, handleLogin)
+  takeLatest(authActions.loginAdmin.toString(), handleLogin),
+  takeLatest(authActions.logout.toString(), logout)
 ]
 
 function* handleLogin(action) {
@@ -18,14 +20,20 @@ function* handleLogin(action) {
     const response = yield loginAPI.login(data)
 
     const { userId, userName, userEmail, userAvatar, token } = response.data
-    yield put(loginActions.setUserData({ userId, userName, userEmail, userAvatar }))
+    yield put(authActions.setUserData({ userId, userName, userEmail, userAvatar }))
 
-    localStorage.setItem('userData', JSON.stringify({ userId, token }))
+    localStorage.setItem(localStorageDataName, JSON.stringify({ userId, userName, token }))
 
-    yield put(loginActions.setIsAuth(true))
+    yield put(authActions.setIsAuth(true))
     yield put(appActions.setLoading(false))
     history.push('/')
   } catch (e) {
     message.error('Incorrect email or password!')
   }
+}
+
+function* logout() {
+  console.log('work')
+  localStorage.removeItem(localStorageDataName)
+  yield put(authActions.setIsAuth(false))
 }
