@@ -1,16 +1,15 @@
-export const pages = {
-  catalog: {
-    link: '/catalog',
-    title: 'Catalog'
-  },
-  login: {
-    link: '/login',
-    title: 'Login'
-  },
-  registration: {
-    link: '/registration',
-    title: 'Registration'
-  }
+export const pagesLinks = {
+  catalog: '/catalog',
+  login: '/login',
+  registration: '/registration',
+  editProfile: '/edit-profile'
+}
+
+export const pagesTitles = {
+  catalog: 'Catalog',
+  login: 'Login',
+  registration: 'Registration',
+  editProfile: 'Edit Profile'
 }
 
 export const localStorageDataName = 'userData'

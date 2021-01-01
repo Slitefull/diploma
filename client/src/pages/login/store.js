@@ -23,15 +23,13 @@ const authSlice = createSlice({
   }
 })
 
-const { setUserData, setIsAuth, setUserName } = authSlice.actions
-
 export const authActions = {
   registerAdmin: createAction(`${storeName}/register_admin`),
   loginAdmin: createAction(`${storeName}/login_admin`),
   logout: createAction(`${storeName}/logout`),
-  setUserData,
-  setIsAuth,
-  setUserName,
+  setUserData: authSlice.actions.setUserData,
+  setIsAuth: authSlice.actions.setIsAuth,
+  setUserName: authSlice.actions.setUserName
 }
 
 export const authReducer = authSlice.reducer

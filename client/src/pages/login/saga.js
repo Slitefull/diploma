@@ -33,7 +33,6 @@ function* handleLogin(action) {
 }
 
 function* logout() {
-  console.log('work')
   localStorage.removeItem(localStorageDataName)
   yield put(authActions.setIsAuth(false))
 }

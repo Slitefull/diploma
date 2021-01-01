@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {appActions} from './store'
-import {authSelectors} from "../pages/login/selectors";
-import {useRoutes} from "../hooks/useRoutes";
-import {Header} from "../components/header/Header";
-import {Footer} from "../components/footer/Footer";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { appActions } from './store'
+import { authSelectors } from '../pages/login/selectors'
+import { useRoutes } from '../hooks/useRoutes'
+import { Header } from '../components/header/Header'
+import { Footer } from '../components/footer/Footer'
 
 
 export const App = () => {
