@@ -38,10 +38,10 @@ const authService = {
       )
 
       res.status(200).json({
-        userId: user.id,
-        userName: user.name,
-        userEmail: user.email,
-        userAvatar: user.avatar || null,
+        id: user.id,
+        mame: user.name,
+        email: user.email,
+        avatar: user.avatar || null,
         token,
       })
     } catch (e) {

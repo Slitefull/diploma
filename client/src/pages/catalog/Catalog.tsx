@@ -4,6 +4,6 @@ import { Title, Container } from '../../styled'
 
 export const Catalog = () => (
 	<Container>
-		<Title>Catalog Page</Title>
+		<Title>Future Catalog Page</Title>
 	</Container>
 )

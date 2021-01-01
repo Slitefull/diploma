@@ -1,9 +1,9 @@
-import {put, takeEvery} from 'redux-saga/effects'
-import {authActions} from "../login/store";
-import {appActions} from '../../app/store'
-import {registerAPI} from './api'
-import {history} from '../../history'
-import {message} from 'antd'
+import { put, takeEvery } from 'redux-saga/effects'
+import { authActions } from "../login/store";
+import { appActions } from '../../app/store'
+import { registerAPI } from './api'
+import { history } from '../../history'
+import { message } from 'antd'
 
 
 export const registerWatcher = [
