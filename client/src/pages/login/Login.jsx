@@ -10,7 +10,7 @@ import {FormTitle, FormWrapper} from '../../components/common/form-control/style
 
 export const Login = () => {
   const dispatch = useDispatch()
-  const login = data => dispatch(authActions.loginAdmin(data))
+  const login = data => dispatch(authActions.login(data))
 
   return (
     <Container alignCenter>

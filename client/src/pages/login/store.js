@@ -17,8 +17,8 @@ const authSlice = createSlice({
 })
 
 export const authActions = {
-  registerAdmin: createAction(`${storeName}/register_admin`),
-  loginAdmin: createAction(`${storeName}/login_admin`),
+  register: createAction(`${storeName}/register`),
+  login: createAction(`${storeName}/login`),
   logout: createAction(`${storeName}/logout`),
   setIsAuth: authSlice.actions.setIsAuth,
 }

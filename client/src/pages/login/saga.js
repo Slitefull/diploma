@@ -6,25 +6,26 @@ import { appActions } from '../../app/store'
 import { authActions } from './store'
 import { localStorageDataName } from '../../consts'
 import { profileActions } from '../profile/store'
+import jwt_decode from 'jwt-decode'
 
 
 export const loginWatcher = [
-  takeLatest(authActions.loginAdmin.type, handleLogin),
+  takeLatest(authActions.login.type, handleLogin),
   takeLatest(authActions.logout.type, logout)
 ]
 
 function* handleLogin(action) {
   try {
-    const data = action.payload
-
     yield put(appActions.setLoading(true))
-    const response = yield loginAPI.login(data)
 
-    const { id, name, token } = response.data
+    const response = yield loginAPI.login(action.payload)
+    const { token } = response.data
 
-    yield put(profileActions.setUserName(name))
+    const decodedToken = jwt_decode(token)
+    const { name, role } = decodedToken
 
-    localStorage.setItem(localStorageDataName, JSON.stringify({ id, name, token }))
+    yield put(profileActions.setUserData({ name, role }))
+    localStorage.setItem(localStorageDataName, JSON.stringify({ token }))
 
     yield put(authActions.setIsAuth(true))
     yield put(appActions.setLoading(false))

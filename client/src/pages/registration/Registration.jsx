@@ -11,7 +11,7 @@ import { Container, Link } from '../../styled'
 
 export const Registration = () => {
   const dispatch = useDispatch()
-  const register = data => dispatch(authActions.registerAdmin(data))
+  const register = data => dispatch(authActions.register(data))
 
   return (
     <Container alignCenter>
@@ -24,4 +24,4 @@ export const Registration = () => {
   )
 }
 
-const RegistrationReduxForm = reduxForm({form: 'registration'})(RegistrationForm)
+const RegistrationReduxForm = reduxForm({ form: 'registration' })(RegistrationForm)

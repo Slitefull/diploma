@@ -13,7 +13,7 @@ const authService = {
       if (candidate) return res.status(400).json({ message: "This user already exists!" })
 
       const hashedPassword = await bcrypt.hash(password, 12)
-      const user = new User({ name, surname, email, password: hashedPassword })
+      const user = new User({ name, surname, email, password: hashedPassword, role: 'regular' })
       await user.save()
 
       res.status(201).json({ message: "New user has been created!" })
@@ -32,15 +32,16 @@ const authService = {
       if (!isMatch) return res.status(400).json({ message: "Invalid password, please try again" })
 
       const token = jwt.sign(
-        { userId: user.id },
+        {
+          userId: user.id,
+          name: user.name,
+          role: user.role,
+        },
         config.get('jwtSecret'),
         { expiresIn: '1h' }
       )
 
       res.status(200).json({
-        id: user.id,
-        name: user.name,
-        email: user.email,
         avatar: user.avatar || null,
         token,
       })

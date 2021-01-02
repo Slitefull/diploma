@@ -20,13 +20,16 @@ function* editProfile(action) {
     const userData = Object.assign(action.payload, { userId })
 
     const response = yield profileApi.saveProfileSettings(userData)
-    const { id, name, token } = response.data
+    const { token } = response.data
+
+    const newTokenDecoded = jwt_decode(token)
+    const { name } = newTokenDecoded
 
     if (response.status === 200) {
       localStorage.removeItem(localStorageDataName)
-      localStorage.setItem(localStorageDataName, JSON.stringify({ id, name, token }))
+      localStorage.setItem(localStorageDataName, JSON.stringify({ token }))
 
-      yield put(profileActions.setUserName(name))
+      yield put(profileActions.setUserData({ name }))
     }
   } catch (e) {
     message.error('Something went wrong! Try again later')

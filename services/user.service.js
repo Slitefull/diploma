@@ -14,16 +14,30 @@ const userService = {
       await user.save()
 
       const token = jwt.sign(
-        { userId: user.id },
+        {
+          userId: user.id,
+          name: user.name,
+        },
         config.get('jwtSecret'),
         { expiresIn: '1h' }
       )
 
-      res.status(200).json({
-        id: user.id,
-        name: user.name,
-        token
-      })
+      res.status(200).json({ token })
+    } catch (e) {
+      res.status(500).json({ message: "Something went wrong, please try again later." })
+    }
+  },
+  updateRole: async (req, res) => {
+    try {
+      const { userId, role } = req.body
+      const user = await User.findById(userId)
+
+      if(!user) return res.status(401).json({ message: "User was not found!" })
+
+      user.role = role
+
+      await user.save()
+      res.status(200).json({ message: "User role was updated" })
     } catch (e) {
       res.status(500).json({ message: "Something went wrong, please try again later." })
     }
