@@ -12,7 +12,7 @@ export const App = () => {
   const isAuth = useSelector(authSelectors.getIsAuth)
   const routes = useRoutes(isAuth)
 
-  useEffect(() => { dispatch(appActions.setInit()) }, [])
+  useEffect(() => { dispatch(appActions.setInit()) }, [dispatch])
 
   return (
     <>

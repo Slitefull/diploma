@@ -1,11 +1,15 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+
+const storeName = 'app'
+
+const initialState = {
+  isInitialized: false,
+  isLoading: false
+}
 
 export const appSlice = createSlice({
-  name: 'app',
-  initialState : {
-    isInitialized: false,
-    isLoading: false
-  },
+  name: storeName,
+  initialState,
   reducers: {
     setInit(state, action) {
       state.isInitialized = action.payload
@@ -16,7 +20,9 @@ export const appSlice = createSlice({
   }
 })
 
-const { setInit, setLoading } = appSlice.actions
+export const appActions = {
+  setInit: appSlice.actions.setInit,
+  setLoading: appSlice.actions.setLoading
+}
 
-export const appActions = { setInit, setLoading }
 export const appReducer = appSlice.reducer

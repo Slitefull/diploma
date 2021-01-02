@@ -9,8 +9,8 @@ import { profileActions } from '../profile/store'
 
 
 export const loginWatcher = [
-  takeLatest(authActions.loginAdmin.toString(), handleLogin),
-  takeLatest(authActions.logout.toString(), logout)
+  takeLatest(authActions.loginAdmin.type, handleLogin),
+  takeLatest(authActions.logout.type, logout)
 ]
 
 function* handleLogin(action) {
@@ -20,9 +20,9 @@ function* handleLogin(action) {
     yield put(appActions.setLoading(true))
     const response = yield loginAPI.login(data)
 
-    const { id, name, email, avatar, token } = response.data
+    const { id, name, token } = response.data
 
-    yield put(profileActions.setUserData({ id, name, email, avatar }))
+    yield put(profileActions.setUserName(name))
 
     localStorage.setItem(localStorageDataName, JSON.stringify({ id, name, token }))
 

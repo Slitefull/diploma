@@ -9,7 +9,7 @@ import { FormTitle, FormWrapper } from '../../../components/common/form-control/
 
 export const EditProfile = () => {
   const dispatch = useDispatch()
-  const saveProfileSettings = data => dispatch(profileActions.saveProfileSettings(data))
+  const saveProfileSettings = data => dispatch(profileActions.saveProfileSettings({data}))
 
   return (
     <>
