@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit'
 
 const storeName = 'profile'
 
@@ -15,13 +15,14 @@ const profileSlice = createSlice({
     },
     setUserName(state, action) {
       state.profile.name = action.payload
-    },
+    }
   }
 })
 
 export const profileActions = {
   setUserData: profileSlice.actions.setUserData,
   setUserName: profileSlice.actions.setUserName,
+  saveProfileSettings: createAction(`${storeName}/saveProfileSettings`)
 }
 
 export const profileReducer = profileSlice.reducer

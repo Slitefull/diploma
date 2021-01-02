@@ -5,6 +5,7 @@ import { message } from 'antd'
 import { appActions } from '../../app/store'
 import { authActions } from './store'
 import { localStorageDataName } from '../../consts'
+import { profileActions } from '../profile/store'
 
 
 export const loginWatcher = [
@@ -20,7 +21,8 @@ function* handleLogin(action) {
     const response = yield loginAPI.login(data)
 
     const { id, name, email, avatar, token } = response.data
-    yield put(authActions.setUserData({ id, name, email, avatar }))
+
+    yield put(profileActions.setUserData({ id, name, email, avatar }))
 
     localStorage.setItem(localStorageDataName, JSON.stringify({ id, name, token }))
 

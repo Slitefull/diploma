@@ -39,7 +39,7 @@ const authService = {
 
       res.status(200).json({
         id: user.id,
-        mame: user.name,
+        name: user.name,
         email: user.email,
         avatar: user.avatar || null,
         token,

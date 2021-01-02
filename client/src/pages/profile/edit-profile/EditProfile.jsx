@@ -1,14 +1,15 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
+import { useDispatch } from 'react-redux'
+import { profileActions } from '../store'
 import { EditProfileForm } from './EditProfileReduxForm/EditProfileReduxForm'
 
 import { FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
 
 
 export const EditProfile = () => {
-  const saveProfileSettings = data => {
-    console.log(data)
-  }
+  const dispatch = useDispatch()
+  const saveProfileSettings = data => dispatch(profileActions.saveProfileSettings(data))
 
   return (
     <>
