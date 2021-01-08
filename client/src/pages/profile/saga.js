@@ -8,7 +8,8 @@ import { message } from 'antd'
 
 
 export const profileWatcher = [
-  takeLatest(profileActions.saveProfileSettings.type, editProfile)
+  takeLatest(profileActions.saveProfileSettings.type, editProfile),
+  takeLatest(profileActions.makeAdmin.type, makeUserAdmin)
 ]
 
 function* editProfile(action) {
@@ -31,6 +32,14 @@ function* editProfile(action) {
 
       yield put(profileActions.setUserData({ name }))
     }
+  } catch (e) {
+    message.error('Something went wrong! Try again later')
+  }
+}
+
+function* makeUserAdmin(action) {
+  try {
+    yield profileApi.makeAdmin(action.payload)
   } catch (e) {
     message.error('Something went wrong! Try again later')
   }

@@ -1,8 +1,22 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const config = require('config')
+const userRoles = require('../consts')
 
 const userService = {
+  getAllUsers: async (req, res) => {
+    try {
+      await User.find({}, function(err, result) {
+        if (err) {
+          res.status(500).json({ message: "Can't find users." })
+        } else {
+          res.status(200).json(result);
+        }
+      })
+    } catch (e) {
+      res.status(500).json({ message: "Something went wrong, please try again later." })
+    }
+  },
   editProfile: async (req, res) => {
     try {
       const { data, userId } = req.body
@@ -27,16 +41,33 @@ const userService = {
       res.status(500).json({ message: "Something went wrong, please try again later." })
     }
   },
-  updateRole: async (req, res) => {
+  makeAdmin: async (req, res) => {
     try {
-      const { userId, role } = req.body
+      const { userId } = req.body
       const user = await User.findById(userId)
 
-      if(!user) return res.status(401).json({ message: "User was not found!" })
+      if (!user) return res.status(401).json({ message: "User was not found!" })
+      if (user.role === userRoles.admin) return res.status(401).json({ message: "User is already admin!" })
 
-      user.role = role
-
+      user.role = userRoles.admin
       await user.save()
+
+      res.status(200).json({ message: "User role was updated" })
+    } catch (e) {
+      res.status(500).json({ message: "Something went wrong, please try again later." })
+    }
+  },
+  removeAdmin: async (req, res) => {
+    try {
+      const { userId } = req.body
+      const user = await User.findById(userId)
+
+      if (!user) return res.status(401).json({ message: "User was not found!" })
+      if (user.role === userRoles.regular) return res.status(401).json({ message: "User is already regular!" })
+
+      user.role = userRoles.regular
+      await user.save()
+
       res.status(200).json({ message: "User role was updated" })
     } catch (e) {
       res.status(500).json({ message: "Something went wrong, please try again later." })

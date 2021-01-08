@@ -30,6 +30,12 @@ export const Container = styled.div`
   align-items: ${props => props.itemsCenter ? 'center' : 'normal' };
 `
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 export const Title = styled.h1`
   font-size: 36px;
   line-height: 42px;
@@ -38,10 +44,10 @@ export const Title = styled.h1`
 export const Button = styled.button`
   display: flex;
   justify-content: center;
-  margin: 10px 0 0 0;
+  margin: ${props => props.withoutMargin ? 0 : '10px 0 0 0'};
   padding: 7px 20px;
-  cursor: pointer;
-  background: #2ea44f;
+  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+  background: ${props => props.disabled ? 'grey' : '#2ea44f'};
   border: none;
   border-radius: 6px;
   color: #ffffff;
@@ -52,7 +58,7 @@ export const Button = styled.button`
   
   &:hover {
   transition: 0.3s;
-    background: #2c974b;
+    background: ${props => props.disabled ? 'grey' : '#2c974b'};
   }
 `
 

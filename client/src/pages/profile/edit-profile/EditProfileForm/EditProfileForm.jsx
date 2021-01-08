@@ -21,11 +21,13 @@ export const EditProfileForm = props => {
         component={Input}
         validate={[maxLength15, required]}
       />
-      <Button fullWidth>{
-        isLoading
-          ? <Preloader small/>
-          : 'Save'
-      }</Button>
+      <Button fullWidth>
+        {
+          isLoading
+            ? <Preloader small/>
+            : 'Save'
+        }
+      </Button>
     </Form>
   )
 }

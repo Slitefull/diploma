@@ -3,16 +3,17 @@ import { createAction, createSlice } from '@reduxjs/toolkit'
 const storeName = 'profile'
 
 const initialState = {
-  profile: {
-    name: '',
-    role: ''
-  }
+  profile: {},
+  users: {}
 }
 
 const profileSlice = createSlice({
   name: storeName,
   initialState,
   reducers: {
+    setUsers(state, action) {
+      state.users = action.payload
+    },
     setUserData(state, action) {
       state.profile = action.payload
     },
@@ -23,9 +24,12 @@ const profileSlice = createSlice({
 })
 
 export const profileActions = {
+  setUsers: profileSlice.actions.setUsers,
   setUserData: profileSlice.actions.setUserData,
   setUserName: profileSlice.actions.setUserName,
-  saveProfileSettings: createAction(`${storeName}/saveProfileSettings`)
+  saveProfileSettings: createAction(`${storeName}/saveProfileSettings`),
+  makeAdmin: createAction(`${storeName}/makeAdmin`),
+  removeAdmin: createAction(`${storeName}/removeAdmin`)
 }
 
 export const profileReducer = profileSlice.reducer

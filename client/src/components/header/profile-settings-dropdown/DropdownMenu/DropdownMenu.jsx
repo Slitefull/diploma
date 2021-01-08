@@ -13,7 +13,7 @@ export const DropdownMenu = () => {
   return (
     <Menu>
       <Menu.Item>
-        <NavLinkItem to={pagesLinks.editProfile}>{pagesTitles.editProfile}</NavLinkItem>
+        <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
       </Menu.Item>
       <Menu.Item onClick={() => dispatch(authActions.logout())}>
         Logout

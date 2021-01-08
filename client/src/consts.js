@@ -3,7 +3,7 @@ export const pagesLinks = {
   login: '/login',
   registration: '/registration',
   profile: '/profile',
-  editProfile: '/edit-profile'
+  settings: '/settings'
 }
 
 export const pagesTitles = {
@@ -11,7 +11,7 @@ export const pagesTitles = {
   login: 'Login',
   registration: 'Registration',
   profile: 'Profile',
-  editProfile: 'Edit profile'
+  settings: 'Settings'
 }
 
 export const localStorageDataName = 'userData'

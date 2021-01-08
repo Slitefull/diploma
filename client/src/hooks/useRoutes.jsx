@@ -14,7 +14,7 @@ export const useRoutes = isAuth => {
       <>
         <Route path={pagesLinks.catalog} component={Catalog}/>
         <Route path={pagesLinks.profile} component={Profile}/>
-        <Route path={pagesLinks.editProfile} component={EditProfile}/>
+        <Route path={pagesLinks.settings} component={EditProfile}/>
       </>
     )
   }
