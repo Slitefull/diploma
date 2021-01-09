@@ -7,6 +7,8 @@ import { localStorageDataName } from '../consts'
 import jwt_decode from 'jwt-decode'
 import { profileApi } from '../pages/profile/api'
 import { message } from 'antd'
+import { catalogApi } from '../pages/catalog/api'
+import { catalogActions } from '../pages/catalog/store'
 
 
 export const appWatcher = [
@@ -24,12 +26,31 @@ function* initHandle() {
 
     if (role === userRoles.superAdmin) {
       const getAllUsers = yield profileApi.getAllUsers()
+      const getAllGoods = yield catalogApi.getAllGoods()
 
       if (getAllUsers.status === 200) {
         const { data: users } = getAllUsers
         yield put(profileActions.setUsers(users))
       } else {
         message.error('Error with getting all users!')
+      }
+
+      if (getAllGoods.status === 200) {
+        const { data:goods } = getAllGoods
+        yield put(catalogActions.setGoods(goods))
+      } else {
+        message.error('Error with getting all goods!')
+      }
+    }
+
+    if (role === userRoles.admin) {
+      const getAllGoods = yield catalogApi.getAllGoods()
+
+      if (getAllGoods.status === 200) {
+        const { data:goods } = getAllGoods
+        yield put(catalogActions.setGoods(goods))
+      } else {
+        message.error('Error with getting all goods!')
       }
     }
 

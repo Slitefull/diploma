@@ -3,6 +3,6 @@ const { Router } = require('express')
 
 const router = Router()
 
-router.get('/users', goodsService.getAllGoods)
+router.get('/goods', goodsService.getAllGoods)
 
 module.exports = router
