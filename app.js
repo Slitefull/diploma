@@ -1,8 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const config = require('config')
+
 const authRoutes = require('./routes/auth.routes')
 const userRoutes = require('./routes/user.routes')
+const goodsRoutes = require('./routes/goods.routes')
+
 const Cors = require('cors')
 
 const app = express()
@@ -13,6 +16,7 @@ app.use(Cors())
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/goods', goodsRoutes)
 
 const PORT = process.env.PORT || config.get('port')
 
