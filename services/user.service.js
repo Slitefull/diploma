@@ -6,8 +6,8 @@ const userRoles = require('../consts')
 const userService = {
   getAllUsers: async (req, res) => {
     try {
-      const usersCount = await User.find({'role':'regular'}).countDocuments()
-      const adminsCount = await User.find({'role':'admin'}).countDocuments()
+      const usersCount = await User.find({ 'role':'regular' }).countDocuments()
+      const adminsCount = await User.find({ 'role':'admin' }).countDocuments()
 
       await User.find({}, function(err, result) {
         if (err) {

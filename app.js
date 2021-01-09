@@ -9,9 +9,7 @@ const goodsRoutes = require('./routes/goods.routes')
 const Cors = require('cors')
 
 const app = express()
-
 app.use(express.json({ extended: true }))
-
 app.use(Cors())
 
 app.use('/api/auth', authRoutes)
