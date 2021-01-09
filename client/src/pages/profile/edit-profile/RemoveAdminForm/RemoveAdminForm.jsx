@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileActions } from '../../store'
 import { profileSelectors } from '../../selectors'
+import { userRoles } from '../../../../helpers/getRole'
 import { Option } from 'antd/es/mentions'
 import { Select } from 'antd'
 
@@ -14,9 +15,10 @@ export const RemoveAdminForm = () => {
   const [selectedUser, setSelectedUser] = useState('')
 
   const users = useSelector(profileSelectors.getAllUsers)
+  const admins = users.filter(user => user.role === userRoles.admin)
 
   const onChangeHandler = value => setSelectedUser(value)
-  const removeAdminHandler = () => dispatch(profileActions.makeAdmin(selectedUser))
+  const removeAdminHandler = () => dispatch(profileActions.removeAdmin(selectedUser))
 
   return (
     <>
@@ -32,7 +34,7 @@ export const RemoveAdminForm = () => {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            {/*{users.map(user => <Option key={user._id} value={user._id}>{user.email}</Option>)}*/}
+            {admins.map(admin => <Option key={admin._id} value={admin._id}>{admin.email}</Option>)}
           </Select>
           <Button
             disabled={!Boolean(selectedUser)}

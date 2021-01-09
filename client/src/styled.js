@@ -7,12 +7,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
- 
+
   body {
     background: #fff;
     font-family: 'circe', Helvetica, Sans-Serif;
   }
-  
+
   #root {
     height: 100%;
   }
@@ -27,7 +27,7 @@ export const Container = styled.div`
   padding: 0 25px;
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.alignCenter ? 'center' : 'normal'};
-  align-items: ${props => props.itemsCenter ? 'center' : 'normal' };
+  align-items: ${props => props.itemsCenter ? 'center' : 'normal'};
 `
 
 export const Wrapper = styled.div`
@@ -55,16 +55,16 @@ export const Button = styled.button`
   font-weight: 600;
   transition: 0.3s;
   width: ${props => props.fullWidth ? '100%' : 'auto'};
-  
+
   &:hover {
-  transition: 0.3s;
+    transition: 0.3s;
     background: ${props => props.disabled ? 'grey' : '#2c974b'};
   }
 `
 
 export const Link = styled(NavLink)`
   color: #0366d6;
-  
+
   &:hover {
     text-decoration: underline;
   }
@@ -80,11 +80,26 @@ export const Window = styled.div`
   border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
 `
 
+export const Panel = styled.div`
+  background: #8360c3;
+  background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
+  background: linear-gradient(to right, #2ebf91, #8360c3);
+  padding: 20px 0;
+  margin: 0 0 40px;
+  font-size: 30px;
+  color: #ffffff;
+`
+
+export const Count = styled.span`
+  font-size: 50px;
+  text-align: center;
+`
+
 export const Preloader = styled.span`
   display: inline-block;
   width: ${props => props.small ? '22px' : '80px'};
   height: ${props => props.small ? '22px' : '80px'};
-  
+
   &:after {
     content: " ";
     display: block;

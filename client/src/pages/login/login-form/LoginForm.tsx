@@ -1,5 +1,5 @@
 import React from 'react'
-import {Input} from '../../../components/common/form-control/form-controls'
+import {Input} from '../../../components/common/form-control/FormControl'
 import {maxLengthCreator, required} from '../../../helpers/validators/validators'
 import {Button} from '../../../styled'
 import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'

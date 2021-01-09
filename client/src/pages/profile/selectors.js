@@ -7,5 +7,7 @@ export const profileSelectors = {
   getUserEmail: createSelector(profileState, state => state.profile.email),
   getUserAvatar: createSelector(profileState, state => state.profile.avatar),
   getUserRole: createSelector(profileState, state => state.profile.role),
-  getAllUsers: createSelector(profileState, state => state.users)
+  getAllUsers: createSelector(profileState, state => state.users.users),
+  getUsersCount: createSelector(profileState, state => state.users.usersCount),
+  getAdminsCount: createSelector(profileState, state => state.users.adminsCount),
 }

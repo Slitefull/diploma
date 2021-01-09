@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {Input} from '../../../components/common/form-control/form-controls'
+import {Input} from '../../../components/common/form-control/FormControl'
 import {maxLengthCreator, required} from '../../../helpers/validators/validators'
 import {appSelectors} from '../../../app/selectors'
 import {Button, Preloader} from '../../../styled'

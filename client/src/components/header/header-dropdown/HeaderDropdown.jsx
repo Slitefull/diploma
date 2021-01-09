@@ -4,7 +4,7 @@ import { BiDownArrow as ArrowDown } from 'react-icons/bi'
 import { DropdownMenu } from './DropdownMenu/DropdownMenu'
 
 
-export const ProfileSettingsDropdown = () => (
+export const HeaderDropdown = () => (
   <Dropdown
     overlay={<DropdownMenu/>}
     trigger='click'

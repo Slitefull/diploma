@@ -9,7 +9,8 @@ import { message } from 'antd'
 
 export const profileWatcher = [
   takeLatest(profileActions.saveProfileSettings.type, editProfile),
-  takeLatest(profileActions.makeAdmin.type, makeUserAdmin)
+  takeLatest(profileActions.makeAdmin.type, makeAdmin),
+  takeLatest(profileActions.removeAdmin.type, removeAdmin)
 ]
 
 function* editProfile(action) {
@@ -37,9 +38,31 @@ function* editProfile(action) {
   }
 }
 
-function* makeUserAdmin(action) {
+function* makeAdmin({ payload:userId }) {
   try {
-    yield profileApi.makeAdmin(action.payload)
+    const makeAdmin = yield profileApi.makeAdmin(userId)
+
+    if (makeAdmin.status === 200) {
+      const { data:users } = yield profileApi.getAllUsers()
+      yield put(profileActions.setUsers(users))
+
+      return message.success('New admin has been added!')
+    }
+  } catch (e) {
+    message.error('Something went wrong! Try again later')
+  }
+}
+
+function* removeAdmin({ payload:userId }) {
+  try {
+    const removeAdmin = yield profileApi.removeAdmin(userId)
+
+    if (removeAdmin.status === 200) {
+      const { data:users } = yield profileApi.getAllUsers()
+      yield put(profileActions.setUsers(users))
+
+      return message.success('Admin has been removed!')
+    }
   } catch (e) {
     message.error('Something went wrong! Try again later')
   }

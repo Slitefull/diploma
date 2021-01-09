@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { appSelectors } from '../../../../app/selectors'
-import { Input } from '../../../../components/common/form-control/form-controls'
+import { Input } from '../../../../components/common/form-control/FormControl'
 import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
 
 import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
