@@ -4,7 +4,8 @@ import { appActions } from './store'
 import { authSelectors } from '../pages/login/selectors'
 import { useRoutes } from '../hooks/useRoutes'
 import { Header } from '../components/header/Header'
-import { Footer } from '../components/footer/Footer'
+import { Sidebar } from '../components/sidebar/Sidebar'
+import { GridContainer } from './styled'
 
 
 export const App = () => {
@@ -15,10 +16,10 @@ export const App = () => {
   useEffect(() => { dispatch(appActions.setInit()) }, [dispatch])
 
   return (
-    <>
+    <GridContainer>
       <Header/>
-        {routes}
-      <Footer/>
-    </>
+      <Sidebar/>
+      {routes}
+    </GridContainer>
   )
 }

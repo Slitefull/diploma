@@ -30,6 +30,10 @@ export const Container = styled.div`
   align-items: ${props => props.itemsCenter ? 'center' : 'normal'};
 `
 
+export const Main = styled.main`
+  grid-area: Main;
+`
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;

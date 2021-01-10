@@ -12,6 +12,7 @@ export const useRoutesMenu = isAuth => {
       <>
         <NavLinkItem to={pagesLinks.catalog}>{pagesTitles.catalog}</NavLinkItem>
         <ProfileIcon/>
+        <ProfileIcon/>
         <HeaderDropdown/>
       </>
     )

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 
 export const HeaderWrapper = styled.header`
+  grid-area: Header;
   width: 100%;
   margin: auto;
   padding: 10px 0;
