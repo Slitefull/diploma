@@ -1,8 +1,8 @@
-import { instance } from '../../api/api'
+import wretch from 'wretch'
 
 export const profileApi = {
-  getAllUsers: () => instance.get(`user/users`),
-  saveProfileSettings: data => instance.put(`user/profile`, data),
-  makeAdmin: userId => instance.post(`user/makeAdmin`, { userId }),
-  removeAdmin: userId => instance.delete(`user/removeAdmin`, { data: { userId } })
+  getAllUsers: () => wretch.get(`user/users`).json(),
+  saveProfileSettings: data => wretch.put(`user/profile`, data),
+  makeAdmin: userId => wretch.post(`user/makeAdmin`, { userId }),
+  removeAdmin: userId => wretch.delete(`user/removeAdmin`, { data: { userId } })
 }

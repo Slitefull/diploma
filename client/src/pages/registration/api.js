@@ -1,5 +1,5 @@
-import { instance } from '../../api/api';
+import wretch from 'wretch'
 
 export const registerAPI = {
-  register: data => instance.post(`auth/register`, data)
+  register: data => wretch.post(`auth/register`, data)
 }

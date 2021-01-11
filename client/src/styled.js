@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -28,10 +27,6 @@ export const Container = styled.div`
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.alignCenter ? 'center' : 'normal'};
   align-items: ${props => props.itemsCenter ? 'center' : 'normal'};
-`
-
-export const Main = styled.main`
-  grid-area: Main;
 `
 
 export const Wrapper = styled.div`
@@ -82,16 +77,6 @@ export const Window = styled.div`
   padding: ${props => props.hasError ? '4px 0' : '15px 0'};
   background: ${props => props.hasError ? '#ffe3e6' : 'transparent'};
   border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
-`
-
-export const Panel = styled.div`
-  background: #8360c3;
-  background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
-  background: linear-gradient(to right, #2ebf91, #8360c3);
-  padding: 20px 0;
-  margin: 0 0 40px;
-  font-size: 30px;
-  color: #ffffff;
 `
 
 export const Count = styled.span`
