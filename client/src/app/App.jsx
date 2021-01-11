@@ -4,7 +4,7 @@ import { appActions } from './store'
 import { authSelectors } from '../pages/login/selectors'
 import { useRoutes } from '../hooks/useRoutes'
 
-import { GridContainer } from './styled'
+import { AppWrapper } from './styled'
 
 
 export const App = () => {
@@ -15,8 +15,8 @@ export const App = () => {
   useEffect(() => { dispatch(appActions.setInit()) }, [dispatch])
 
   return (
-    <GridContainer>
+    <AppWrapper>
       {routes}
-    </GridContainer>
+    </AppWrapper>
   )
 }

@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { NavLink } from 'react-router-dom'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -31,6 +30,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: ${props => props.row ? 'row' : 'column'};
   align-items: center;
   justify-content: space-between;
 `
@@ -40,32 +40,31 @@ export const Title = styled.h1`
   line-height: 42px;
 `
 
+export const Logo = styled.img`
+  width: 100%;
+  margin: ${props => props.center ? 'auto' : 'inherit'};
+  max-width: 80px;
+`
+
 export const Button = styled.button`
   display: flex;
   justify-content: center;
   margin: ${props => props.withoutMargin ? 0 : '10px 0 0 0'};
-  padding: 7px 20px;
+  padding: 10px 20px;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
-  background: ${props => props.disabled ? 'grey' : '#2ea44f'};
+  background: ${props => props.disabled ? 'grey' : '#687ae8'};
   border: none;
+  outline: none;
   border-radius: 6px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   transition: 0.3s;
   width: ${props => props.fullWidth ? '100%' : 'auto'};
 
   &:hover {
     transition: 0.3s;
-    background: ${props => props.disabled ? 'grey' : '#2c974b'};
-  }
-`
-
-export const Link = styled(NavLink)`
-  color: #0366d6;
-
-  &:hover {
-    text-decoration: underline;
+    background: ${props => props.disabled ? 'grey' : '#475de3'};
   }
 `
 

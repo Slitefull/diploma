@@ -2,10 +2,12 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { LoginForm } from './login-form/LoginForm'
-import { InfoWindow } from '../../components/common/info-window/InfoWindow'
-import { authActions } from "./store";
-import { Container, Link } from '../../styled'
-import { FormTitle, FormWrapper } from '../../components/common/form-control/styled'
+import { authActions } from './store';
+import { Logo } from '../../styled'
+import { AuthLink, FormTitle, FormWrapper } from '../../components/common/form-control/styled'
+import logo from '../../assets/logo.svg'
+import { LoginBackground } from './styled'
+import { pagesLinks } from '../../consts'
 
 
 export const Login = () => {
@@ -13,13 +15,15 @@ export const Login = () => {
   const login = data => dispatch(authActions.login(data))
 
   return (
-    <Container alignCenter>
-      <FormTitle>Sign in</FormTitle>
+    <>
       <FormWrapper>
+      <Logo src={logo} center/>
+      <FormTitle>Login</FormTitle>
         <LoginReduxForm onSubmit={login}/>
-        <InfoWindow>New to Diploma?<Link to={'/registration'}> Create an account.</Link></InfoWindow>
+        <AuthLink to={pagesLinks.registration}>Register account</AuthLink>
       </FormWrapper>
-    </Container>
+      <LoginBackground/>
+    </>
   )
 }
 
