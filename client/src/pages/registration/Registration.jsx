@@ -3,9 +3,12 @@ import { reduxForm } from 'redux-form'
 import { useDispatch } from 'react-redux'
 import { authActions } from '../login/store'
 import { RegistrationForm } from './registration-form/RegistrationForm'
+import { pagesLinks } from '../../consts'
+import logo from '../../assets/logo.svg'
 
-import { FormTitle, FormWrapper } from '../../components/common/form-control/styled'
-import { Container } from '../../styled'
+import { AuthLink, FormTitle, FormWrapper } from '../../components/common/form-control/styled'
+import { RegistrationBackground } from './styled'
+import { Logo } from '../../styled'
 
 
 export const Registration = () => {
@@ -13,12 +16,15 @@ export const Registration = () => {
   const register = data => dispatch(authActions.register(data))
 
   return (
-    <Container alignCenter>
-      <FormTitle>Registration Page</FormTitle>
+    <>
       <FormWrapper>
+        <Logo src={logo} center/>
+        <FormTitle>Registration</FormTitle>
         <RegistrationReduxForm onSubmit={register}/>
+        <AuthLink to={pagesLinks.login}>Already have an account? Login, please</AuthLink>
       </FormWrapper>
-    </Container>
+      <RegistrationBackground/>
+    </>
   )
 }
 

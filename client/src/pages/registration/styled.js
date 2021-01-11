@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import background from '../../assets/login/background.svg'
+import background from '../../assets/registration/background.svg'
 
-export const LoginBackground = styled.div`
+export const RegistrationBackground = styled.div`
   background-position: center;
   background-size: cover;
   display: block;
